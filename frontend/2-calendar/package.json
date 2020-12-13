@@ -1,0 +1,24 @@
+{
+  "name": "hello-world",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.9.0",
+    "react-virtualized": "^9.22.2",
+    "react-window": "^1.8.6"
+  },
+  "dependencies": {
+    "immutability-helper": "^2.1.1",
+    "moment": "^2.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.11.2",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
