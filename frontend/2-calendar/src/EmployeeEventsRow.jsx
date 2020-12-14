@@ -94,7 +94,7 @@ class EmployeeEventsRow extends Component {
 
   render() {
     return (
-      <div className="cat-row single" key={this.props.employee.firstName}>
+      <div className="cat-row single" key={this.props.employee._id}>
         {this.printDays()}
         {this.printEvents()}
       </div>

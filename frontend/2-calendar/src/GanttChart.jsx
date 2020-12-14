@@ -38,16 +38,15 @@ class GanttChart extends Component {
     document.removeEventListener('scroll', this.scrollDebounced);
   }
 
-  createEmployRow(employee, i) {
+  createEmployRow(employee) {
     const child = createRef();
     this.childs.push(child);
-    return <EmployeeEventsRow ref={child} employee={employee} key={i} handleOpenModal={this.props.handleOpenModal} calendar={this.props.weeklyCalendar}/>
+    return <EmployeeEventsRow ref={child} employee={employee} key={employee._id} handleOpenModal={this.props.handleOpenModal} calendar={this.props.weeklyCalendar}/>
   }
 
   render() {        
     console.log("employees",this.props.employees)
     this.childs = [];
-
     return (
       <div className="chart">
         <div className="content">

@@ -42,9 +42,13 @@ class App extends Component {
     for (var i=1;i<=1000;i++){
       lotsOfEmployees=lotsOfEmployees.concat(employeeArray)
     }
-    lotsOfEmployees.forEach(function(emp,i){
-      emp._id=i;
+    lotsOfEmployees = lotsOfEmployees.map(function(emp,i){
+      return {
+        ...emp,
+        _id: i
+      }      
     })
+
     this.state = {
       employees:lotsOfEmployees,
       weeklyCalendar: calendar,

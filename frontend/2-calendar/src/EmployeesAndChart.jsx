@@ -8,6 +8,7 @@ class EmployeesAndChart extends Component {
     var employees=[];
     var searchText = this.props.searchText;
     var lcSearchText=searchText.toLowerCase();
+    
     this.props.employees.forEach((employee,i) => {
       var lcFirstName=employee.firstName.toLowerCase();
       var lcLastName=employee.lastName.toLowerCase();
@@ -17,6 +18,7 @@ class EmployeesAndChart extends Component {
         employees.push(employee);
       }
     });
+
 
     return (
       <Fragment>
