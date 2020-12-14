@@ -27,7 +27,7 @@ class GanttChart extends Component {
   }
 
   detectComponents() {
-    this.childs.forEach((child) => child.current.detectComponents && child.current.detectComponents());
+    this.childs.forEach((child) => child.current.detectComponents());
   }
 
   componentDidMount() {
@@ -44,22 +44,9 @@ class GanttChart extends Component {
     return <EmployeeEventsRow ref={child} employee={employee} key={i} handleOpenModal={this.props.handleOpenModal} calendar={this.props.weeklyCalendar}/>
   }
 
-  render() {    
-    var printEmployeeRows=[];
-    var employees=this.props.employees;
-    var searchText = this.props.searchText;
-    var lcSearchText=searchText.toLowerCase();
-    console.log("employees",employees)
+  render() {        
+    console.log("employees",this.props.employees)
     this.childs = [];
-    employees.forEach((employee,i) => {
-      var lcFirstName=employee.firstName.toLowerCase();
-      var lcLastName=employee.lastName.toLowerCase();
-      if(searchText !== '' &&  (lcFirstName.indexOf(lcSearchText) !== -1 || lcLastName.indexOf(lcSearchText)!==-1)){
-        printEmployeeRows.push(this.createEmployRow(employee, i));
-      }else if (!searchText){
-        printEmployeeRows.push(this.createEmployRow(employee, i));
-      }
-    });
 
     return (
       <div className="chart">
@@ -68,7 +55,7 @@ class GanttChart extends Component {
         </div>
         <Columns weeklyCalendar={this.props.weeklyCalendar} employees={this.props.employees} handleUpdate={this.props.handleUpdate}></Columns>
         <div className="rows">
-          {printEmployeeRows}
+          {this.props.employees.map(this.createEmployRow.bind(this))}
         </div>
       </div>
     );

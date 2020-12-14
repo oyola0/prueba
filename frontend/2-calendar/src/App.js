@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import employeeArray from "./employeeArray.js";
 import './App.css';
-import Employees from './Employees.jsx';
-import GanttChart from './GanttChart.jsx';
+import EmployeesAndChart from './EmployeesAndChart.jsx';
 import WeeklyCalendar from './WeeklyCalendar.js';
 import moment from 'moment';
 import ReactModal from 'react-modal';
@@ -113,14 +112,13 @@ class App extends Component {
         </div>
         <Search handleSearch={this.handleSearch.bind(this)}></Search>
 
-        <Employees employees={this.state.employees}  searchText={this.state.searchText} />
-        <GanttChart weeklyCalendar={this.state.weeklyCalendar} searchText={this.state.searchText} employees={this.state.employees} handleOpenModal={this.handleOpenModal} handleUpdate={this.update.bind(this)}/>
-          <ReactModal
-            isOpen={this.state.showModal}
-            style={customStyle}
-            contentLabel="Minimal Modal Example">
-           <button onClick={this.handleCloseModal}>Close Modal</button>
-         </ReactModal>
+        <EmployeesAndChart weeklyCalendar={this.state.weeklyCalendar} searchText={this.state.searchText} employees={this.state.employees} handleOpenModal={this.handleOpenModal} handleUpdate={this.update.bind(this)}/>        
+        <ReactModal
+          isOpen={this.state.showModal}
+          style={customStyle}
+          contentLabel="Minimal Modal Example">
+          <button onClick={this.handleCloseModal}>Close Modal</button>
+        </ReactModal>
       </div>
     );
   }
